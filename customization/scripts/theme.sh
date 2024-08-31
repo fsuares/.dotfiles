@@ -17,4 +17,12 @@ install_gtk_theme(){
 	flatpak override --user --filesystem=xdg-config/gtk-4.0
 	sudo flatpak override --filesystem=xdg-config/gtk-4.0
 }
+
+change_wallpaper(){
+	sudo cp -r ./.dotfiles/wallpapers /usr/share/backgrounds/
+	gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/wallpapers/11.jpg
+	gsettings set org.gnome.desktop.background picture-uri-dark file:///usr/share/backgrounds/wallpapers/11.jpg
+}
+
+export change_wallpaper
 export install_gtk_theme
