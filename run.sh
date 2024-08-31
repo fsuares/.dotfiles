@@ -11,7 +11,7 @@ source ./scripts/flatpak.sh
 source ./scripts/gnomeExtensions.sh
 source ./scripts/shell.sh
 source ./scripts/asdf.sh
-source ./customization/run.sh
+source ./customization/customize.sh
 
 echo -e "${ORANGE}This step will update system and clean caches${NO_COLOR}"
 read -p "Continue? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
