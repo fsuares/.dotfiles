@@ -59,6 +59,7 @@ install_deb_apps(){
 		'ca-certificates'
 		'cpp'
 		'curl'
+		'code'
 		'containerd.io'
 		'dconf-cli'
 		'docker-buildx-plugin'
@@ -102,7 +103,12 @@ install_deb_apps(){
 	echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 	curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
 	echo 'deb [signed-by=/etc/apt/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+	wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+	sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
+	rm packages.microsoft.gpg
+	echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
 
+	upgrade_cleanup
 
 	for PKG in ${DEB_PKGS[@]}; do
 		if ! dpkg -l | grep -q $PKG; then
