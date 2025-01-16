@@ -9,7 +9,6 @@ install_gnome_extensions(){
 			https://extensions.gnome.org/extension/4410/gnome-trash/
 			https://extensions.gnome.org/extension/4451/logo-menu/
 			https://extensions.gnome.org/extension/4470/media-controls/
-			https://extensions.gnome.org/extension/3465/panel-date-format/
 			https://extensions.gnome.org/extension/8/places-status-indicator/
 			https://extensions.gnome.org/extension/4491/privacy-settings-menu/
 			https://extensions.gnome.org/extension/905/refresh-wifi-connections/
