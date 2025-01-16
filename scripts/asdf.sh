@@ -21,18 +21,18 @@ configure_asdf(){
 
 	for PLG in ${PLUGINS[@]}; do
 		asdf plugin add $PLG
-		echo -e "${GREEN}[INSTALED] - $PLG"
+		echo -e "${GREEN}[INSTALED] - $PLG ${NO_COLOR}"
 	done
 
 	sleep 1
 
 	for PLG in ${PLUGINS[@]}; do
 		asdf install $PLG latest
-		echo -e "${ORANGE}[LATEST] - $PLG"
+		echo -e "${ORANGE}[LATEST] - $PLG ${NO_COLOR}"
 	done
 
 	cp ./.dotfiles/.tool-versions $HOME
-	echo -e "${ORANGE}[TOOL-VERSIONS] - Copied to home"
+	echo -e "${ORANGE}[TOOL-VERSIONS] - Copied to home ${NO_COLOR}"
 	sleep 1
 	echo
 	echo
