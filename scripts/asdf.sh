@@ -10,6 +10,9 @@ configure_asdf(){
 	PLUGINS=(
 		'nodejs'
 		'pnpm'
+		'bun'
+		'yarn'
+		'zig'
 		'python'
 		'rust'
 		'elixir'
