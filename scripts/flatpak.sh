@@ -8,24 +8,44 @@ NO_COLOR='\e[0m'
 
 install_flatpak_apps(){
 	FLATPAK_APPS=(
-		'com.visualstudio.code'
-		'rest.insomnia.Insomnia'
-		'com.jetbrains.WebStorm'
-		'org.chromium.Chromium'
-		'org.mozilla.Thunderbird'
-		'org.gnome.Polari'
 		'com.discordapp.Discord'
-		'io.github.mimbrero.WhatsAppDesktop'
-		'com.bitwarden.desktop'
-		'org.wezfurlong.wezterm'
-		'com.mattjakeman.ExtensionManager'
+		'com.gigitux.youp'
 		'com.github.IsmaelMartinez.teams_for_linux'
-		'md.obsidian.Obsidian'
+		'com.jetbrains.WebStorm'
+		'com.mattermost.Desktop'
+		'com.mattjakeman.ExtensionManager'
 		'com.spotify.Client'
-		'com.notepadqq.Notepadqq'
-		'io.neovim.nvim'
+		'com.usebruno.Bruno'
+		'dev.zed.Zed'
+		'io.github.realmazharhussain.GdmSettings'
+		'io.github.zen_browser.zen'
+		'md.obsidian.Obsidian'
+		'org.freedesktop.Platform'
+		'org.freedesktop.Platform'
+		'org.freedesktop.Platform.GL.default'
+		'org.freedesktop.Platform.GL.default'
+		'org.freedesktop.Platform.GL.default'
+		'org.freedesktop.Platform.GL.default'
+		'org.freedesktop.Platform.GL.default'
+		'org.freedesktop.Platform.GL.nvidia-560-35-03'
+		'org.freedesktop.Platform.GL.nvidia-565-77'
+		'org.freedesktop.Platform.VAAPI.Intel'
+		'org.freedesktop.Platform.VAAPI.Intel'
+		'org.freedesktop.Platform.VAAPI.Intel'
+		'org.freedesktop.Platform.ffmpeg-full'
+		'org.freedesktop.Platform.ffmpeg-full'
+		'org.freedesktop.Platform.openh264'
+		'org.freedesktop.Platform.openh264'
+		'org.freedesktop.Platform.openh264'
+		'org.freedesktop.Sdk'
+		'org.gnome.Platform'
+		'org.gnome.Platform'
+		'org.gnome.Platform'
+		'org.gnome.Polari'
+		'org.gtk.Gtk3theme.Pop-dark'
+		're.sonny.Commit'
 	)
-	
+
 
   # Add Flathub repository
   if ! flatpak remote-list | grep -q "flathub"; then
@@ -39,7 +59,7 @@ install_flatpak_apps(){
 	sleep 1
 	echo
 	echo
-	
+
   # Install flatpak apps
   for PKG in ${FLATPAK_APPS[@]}; do
     if ! flatpak list | grep -q $PKG; then
