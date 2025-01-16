@@ -10,12 +10,13 @@ install_gnome_extensions(){
 			https://extensions.gnome.org/extension/4451/logo-menu/
 			https://extensions.gnome.org/extension/4470/media-controls/
 			https://extensions.gnome.org/extension/3465/panel-date-format/
-			https://extensions.gnome.org/extension/8/places-status-indicator/ )
+			https://extensions.gnome.org/extension/8/places-status-indicator/
 			https://extensions.gnome.org/extension/4491/privacy-settings-menu/
 			https://extensions.gnome.org/extension/905/refresh-wifi-connections/
 			https://extensions.gnome.org/extension/5237/rounded-window-corners/
 			https://extensions.gnome.org/extension/906/sound-output-device-chooser/
 			https://extensions.gnome.org/extension/19/user-themes/
+	)
 
 		for i in "${array[@]}"
 		do
