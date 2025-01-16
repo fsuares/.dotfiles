@@ -107,9 +107,9 @@ install_deb_apps(){
 	for PKG in ${DEB_PKGS[@]}; do
 		if ! dpkg -l | grep -q $PKG; then
 		  sudo apt install "$PKG" -y
-		  echo -e "${GREEN}[SUCESS]"
+		  echo -e "${GREEN}[SUCESS]${NO_COLOR}"
 		else
-		  echo -e "${ORANGE}[INSTALED] - $PKG"
+		  echo -e "${ORANGE}[INSTALED] - $PKG${NO_COLOR}"
 		fi
 	done
 
