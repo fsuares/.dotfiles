@@ -74,7 +74,6 @@ install_deb_apps(){
 		'gcc'
 		'ghostscript'
 		'ghostscript-x'
-		'ghostty'
 		'git'
 		'gnome-sushi'
 		'gnome-tweaks'
