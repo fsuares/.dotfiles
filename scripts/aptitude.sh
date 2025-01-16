@@ -51,50 +51,58 @@ upgrade_cleanup () {
 }
 
 install_deb_apps(){
-  DEB_PKGS=(
-	'bashtop'
-	'bat'
-	'ca-certificates'
-	'cpp'
-	'curl'
-	'dconf-cli'
-	'docker-buildx-plugin'
-	'docker-ce'
-	'docker-ce-cli'
-	'docker-ce-rootless-extras'
-	'docker-compose-plugin'
-	'exa'
-	'flatpak'
-	'folder-color'
-	'g++'
-	'gcc'
-	'ghostscript'
-	'ghostscript-x'
-	'ghostty'
-	'git'
-	'gnome-sushi'
-	'gnome-tweaks'
-	'gparted'
-	'gtk2-engines-murrine'
-	'libbz2-dev'
-	'libffi-dev'
-	'libncurses5-dev'
-	'libreadline-dev'
-	'libsqlite3-dev'
-	'libssl-dev'
-	'repoman'
-	'sassc'
-	'snap'
-	'snapd'
-	'trash-cli'
-	'vlc'
-	'wezterm'
-	'wget'
-	'xclip'
-	'zlib1g'
-	'zlib1g-dev'
-	'zsh'
-  )
+	DEB_PKGS=(
+		'apt-transport-https'
+		'software-properties-common'
+		'bashtop'
+		'bat'
+		'ca-certificates'
+		'cpp'
+		'curl'
+		'containerd.io'
+		'dconf-cli'
+		'docker-buildx-plugin'
+		'docker-ce'
+		'docker-ce-cli'
+		'docker-ce-rootless-extras'
+		'docker-compose-plugin'
+		'exa'
+		'flatpak'
+		'folder-color'
+		'g++'
+		'gcc'
+		'ghostscript'
+		'ghostscript-x'
+		'ghostty'
+		'git'
+		'gnome-sushi'
+		'gnome-tweaks'
+		'gparted'
+		'gtk2-engines-murrine'
+		'libbz2-dev'
+		'libffi-dev'
+		'libncurses5-dev'
+		'libreadline-dev'
+		'libsqlite3-dev'
+		'libssl-dev'
+		'repoman'
+		'sassc'
+		'snap'
+		'snapd'
+		'trash-cli'
+		'vlc'
+		'wget'
+		'xclip'
+		'zlib1g'
+		'zlib1g-dev'
+		'zsh'
+	)
+
+	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+	echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+	wget https://github.com/wez/wezterm/releases/latest/download/WezTerm-debian.ubuntu-latest.deb
+	sudo apt install ./WezTerm-debian.ubuntu-latest.deb
+	sudo rm -rf WezTerm-debian.ubuntu-latest.deb
 
 	for PKG in ${DEB_PKGS[@]}; do
 		if ! dpkg -l | grep -q $PKG; then
@@ -104,6 +112,11 @@ install_deb_apps(){
 		  echo -e "${ORANGE}[INSTALED] - $PKG"
 		fi
 	done
+
+	sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+	sudo chmod +x /usr/local/bin/docker-compose
+	sudo usermod -aG docker $USER
+
 	sleep 1
 	echo
 	echo
