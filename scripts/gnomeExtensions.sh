@@ -1,14 +1,21 @@
 #!/bin/bash
 
 install_gnome_extensions(){
-	array=( https://extensions.gnome.org/extension/19/user-themes/
+	array=( https://extensions.gnome.org/extension/517/caffeine/
 			https://extensions.gnome.org/extension/5004/dash-to-dock-for-cosmic/
-			https://extensions.gnome.org/extension/906/sound-output-device-chooser/
-			https://extensions.gnome.org/extension/4491/privacy-settings-menu/
+			https://extensions.gnome.org/extension/5766/desaturated-tray-icons/
+			https://extensions.gnome.org/extension/1162/emoji-selector/
 			https://extensions.gnome.org/extension/4422/gnome-clipboard/
-			https://extensions.gnome.org/extension/3193/blur-my-shell/
-			https://extensions.gnome.org/extension/1162/emoji-selector/ 
+			https://extensions.gnome.org/extension/4410/gnome-trash/
+			https://extensions.gnome.org/extension/4451/logo-menu/
+			https://extensions.gnome.org/extension/4470/media-controls/
+			https://extensions.gnome.org/extension/3465/panel-date-format/
 			https://extensions.gnome.org/extension/8/places-status-indicator/ )
+			https://extensions.gnome.org/extension/4491/privacy-settings-menu/
+			https://extensions.gnome.org/extension/905/refresh-wifi-connections/
+			https://extensions.gnome.org/extension/5237/rounded-window-corners/
+			https://extensions.gnome.org/extension/906/sound-output-device-chooser/
+			https://extensions.gnome.org/extension/19/user-themes/
 
 		for i in "${array[@]}"
 		do
